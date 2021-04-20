@@ -1,0 +1,10 @@
+com/clholdings/pass_shoot/springboot/web/domain/posts/PostsRepositoryTest.java
+ com.clholdings.pass_shoot.springboot.web.domain.posts.PostsRepositoryTest
+com/clholdings/pass_shoot/springboot/web/IndexControllerTest.java
+ com.clholdings.pass_shoot.springboot.web.IndexControllerTest
+com/clholdings/pass_shoot/springboot/web/dto/HelloResponseDtoTest.java
+ com.clholdings.pass_shoot.springboot.web.dto.HelloResponseDtoTest
+com/clholdings/pass_shoot/springboot/web/HelloControllerTest.java
+ com.clholdings.pass_shoot.springboot.web.HelloControllerTest
+com/clholdings/pass_shoot/springboot/web/PostsApiControllerTest.java
+ com.clholdings.pass_shoot.springboot.web.PostsApiControllerTest
