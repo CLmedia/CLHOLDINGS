@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.clholdings.pass_shoot.springboot.web.dto.HelloResponseDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-22T20:27:10" hostname="DESKTOP-4PEE67V" time="0.034">
+<testsuite name="com.clholdings.pass_shoot.springboot.web.dto.HelloResponseDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-26T03:40:55" hostname="DESKTOP-4PEE67V" time="0.026">
   <properties/>
-  <testcase name="롬복_기능_테스트()" classname="com.clholdings.pass_shoot.springboot.web.dto.HelloResponseDtoTest" time="0.034"/>
+  <testcase name="롬복_기능_테스트()" classname="com.clholdings.pass_shoot.springboot.web.dto.HelloResponseDtoTest" time="0.026"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
