@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+ABSPATH=$(readlink -f $0)
 # ABSDIR=$(dirname $ABSPATH)
 # 현재 stop.sh 가 속해 있는 경로를 찾습니다.
 # 하단의 코드와 같이 profile.sh 의경로를 찾기 위해 사용됩니다.
