@@ -28,3 +28,4 @@ function switch_proxy() {
     # 여기선 외부의 설정 파일인 service-url 을 다시 불러오는 거라 reload 로 가능합니다.
     sudo service nginx reload
 }
+
