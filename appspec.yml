@@ -1,8 +1,16 @@
 version: 0.0
 os: linux
+# step2는 중단되는 배포입니다 엔진엑스를사용하지않았습니다
+#files:
+#  - source: /
+#    destination: /home/ubuntu/app/step2/zip/
+#    overwrite: yes
+
+# 먼저 step2와중복되지않기위해 EC2에 step3디렉토리를생성합니다
+# 무중단 배포는 앞으로 step3를사용하겠습니다 그래서 appspec.yml 역시 step3 로 배포되도록수정합니다
 files:
   - source: /
-    destination: /home/ubuntu/app/step2/zip/
+    destination: /home/ubuntu/app/step3/zip/
     overwrite: yes
 
 permissions:
@@ -11,8 +19,24 @@ permissions:
     owner: ubuntu
     group: ubuntu
 
+# 무중단 배포를진행할 스크립트들은 총5개입니다
+#stop.sh: 기존엔진엑스에연결되어있진않지만, 실행중이던 스프링부트종료
+#start.sh: 배포할신규버전스프링부트프로젝트를 stop.sh 로종료한 'profile'로실행
+#health.sh: 'start.sh'로실행시킨프로젝트가 정상적으로 실행됐는지체크
+#switch.sh: 엔진엑스가 바라보는 스프링부트를 최신버전으로변경
+#profile.sh: 앞선 네개 스크립트파일에서 공용으로 사용할 'profile'과 포트 체크 로직
+# appspec.yml 에 앞선스크립트를사용하도록설정합니다
+# Jar 파일이복사된 이후부터 차례로앞선 스크립트들이 실행된다고 보면 됩니다.
 hooks:
+  AfterInstall:
+    - location: stop.sh # 엔진엑스와 연결되어 있지않은 스프링 부트를 종료합니다.
+      timeout: 60
+      runas: ubuntu
   ApplicationStart:
-    - location: deploy.sh
+    - location: start.sh # 엔진엑스와 연결되어 있지 않은 Port 로 새버전의스프링부트를 시작합니다.
+      timeout: 60
+      runas: ubuntu
+  ValidateService:
+    - location: health.sh # 새 스프링 부트가 정상적으로 실행됐는지 확인합니다.
       timeout: 60
       runas: ubuntu
